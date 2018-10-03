@@ -12,14 +12,20 @@ RSpec.describe Comedian do
 
     describe 'Required Field(s)' do
       it 'should be invalid if missing a name' do
-        comic = Comedian.create(age: 48)
+        comic = Comedian.create(birthdate: 'September 12, 1967', city: 'Las Vegas, NV')
         expect(comic).to_not be_valid
       end
 
-      it 'should be invalid if missing an age' do
-        comic = Comedian.create(name: 'Mitch Hedberg')
+      it 'should be invalid if missing birthdate' do
+        comic = Comedian.create(name: 'Mitch Hedberg', city: 'Las Vegas, NV')
         expect(comic).to_not be_valid
       end
+
+      it 'should be invalid if missing a city' do
+        comic = Comedian.create(name: 'Mitch Hedberg', birthdate: 'September 12, 1967')
+        expect(comic).to_not be_valid
+      end
+      
     end
   end
 end
