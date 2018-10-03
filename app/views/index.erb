@@ -1,5 +1,22 @@
-<h1>All Comedians</h1>
+<html>
 
-<% @comedians.each do |comedian| %>
-  <h3><%= comedian.name %></h3>
-<% end %>
+<head>
+  <title>Laugh Tracks</title>
+  <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Knewave|Oswald:700|Raleway" rel="stylesheet"></head>
+
+<body>
+
+  <h1>Comedians</h1>
+  <% @comedians.each do |comedian| %>
+    <article>
+      <h3><%= comedian.name %></h3>
+      <% age = @today.year - comedian.birthdate.year %>
+      <% age -= 1 if @today < comedian.birthdate + age.years %>
+      <p>Age: <%= age %></p>
+      <p>Birthplace: <%= comedian.city %></p>
+    </article>
+  <% end %>
+
+</body>
