@@ -38,7 +38,7 @@ specials = [
   {title: "All Commercials... A Steve Martin Special", runtime: 60, thumbnail: "https://m.media-amazon.com/images/M/MV5BNjk2MDk4Njk3M15BMl5BanBnXkFtZTgwNDYxMDA2MDE@._V1_UY268_CR9,0,182,268_AL_.jpg", comedian_id: 6},
   {title: "A Steven Wright Special", runtime: 60, thumbnail: "https://m.media-amazon.com/images/M/MV5BODUyOTI4NWEtMzZjOS00ZGJjLTk5NzQtYzEwNGE1YjI2NGVmXkEyXkFqcGdeQXVyMzM5NDYyMjE@._V1_UY268_CR43,0,182,268_AL_.jpg", comedian_id: 7},
   {title: "Steven Wright: When the Leaves Blow Away", runtime: 43, thumbnail: "https://m.media-amazon.com/images/M/MV5BMTg1OTA4MjU0N15BMl5BanBnXkFtZTcwODc1NzU0MQ@@._V1_UY268_CR4,0,182,268_AL_.jpg", comedian_id: 7},
-  {title: "Steven Wright: Wicker Chairs and Gravity", runtime: 60, thumbnail: "http://www.frogriot.com/wp-content/themes/semplice/images/no_thumb.png", comedian_id: 7},
+  {title: "Steven Wright: Wicker Chairs and Gravity", runtime: 60, comedian_id: 7},
   {title: "Billy Connolly: High Horse Tour Live", runtime: 96, thumbnail: "https://m.media-amazon.com/images/M/MV5BMDc3NmRlMjQtMWU3OC00N2YwLWJkNzktNjBkNjdkOTA3YjcyL2ltYWdlXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_UY268_CR9,0,182,268_AL_.jpg", comedian_id: 8},
   {title: "Billy Connolly: Was It Something I Said?", runtime: 125, thumbnail: "https://m.media-amazon.com/images/M/MV5BNjFlMTMxYjctZjE5My00MzAwLWI4YWYtOWIxNzY4NDg2MTZhXkEyXkFqcGdeQXVyMTk3NDAwMzI@._V1_UY268_CR15,0,182,268_AL_.jpg", comedian_id: 8},
   {title: "Billy Connolly: Live in New York", runtime: 92, thumbnail: "https://m.media-amazon.com/images/M/MV5BMjA5NTM2MzAyNF5BMl5BanBnXkFtZTcwOTc5ODIzMQ@@._V1_UY268_CR4,0,182,268_AL_.jpg", comedian_id: 8},

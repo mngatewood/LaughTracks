@@ -22,7 +22,8 @@
       <div class="specials-container">
         <% comedian.specials.first(3).each do |special| %>
           <div class="special-info">
-            <img alt="TV special thumbnail" src="<%= special.thumbnail %>"/>
+            <img alt="<%= special.title %> thumbnail" 
+              src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
             <div class="special-text">
               <h4><%= special.title %></h4>
               <p>Length: <%= special.runtime %> minutes</p>
