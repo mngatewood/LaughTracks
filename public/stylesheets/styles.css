@@ -12,11 +12,34 @@ h1 {
 }
 
 article {
+  display: flex;
   background-color: white;
-  border-radius: 10px;
-  padding: 10px 5px;
+  border-radius: 10px 18px 3px 10px;
   margin: 18px;
-  width: 30vw;
+  min-width: 800px;
+  padding: 0;
+}
+
+.comedian-info {
+  padding: 6px;
+  width: 25vw;
+}
+
+.specials-container {
+  display: flex;
+  width: 75vw;
+  padding: 0;
+  margin: 6px;
+}
+
+.special-info {
+  display: flex;
+  background-color:aliceblue;
+  margin: 6px;
+  width: 33%;
+  border-radius: 0 18px 4px 0;
+  border: 1px solid black;
+  box-shadow: 15px black;
 }
 
 h3 {
@@ -28,4 +51,26 @@ h3 {
 
 p {
   margin: 6px;
+}
+
+h4 {
+  margin: 6px 3px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.special-text {
+  position: relative;
+}
+
+.special-text p {
+  font-size: 12px;
+}
+
+img {
+  height: 100px;
+  width: 60px;
+  margin: 6px;
+  border: 1px solid black;
 }
