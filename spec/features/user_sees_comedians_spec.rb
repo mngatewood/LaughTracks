@@ -2,9 +2,9 @@ RSpec.describe "as a visitor" do
   describe "when I visit the comedians page" do
 
     before(:each) do
-      @comedian_1 = Comedian.create(name: "Louis C.K.", birthdate: "September 12, 1967", city: "Washington, D.C.")
-      @comedian_2 = Comedian.create(name: "Chris Rock", birthdate: "February 7, 1965", city: "Andrews, South Carolina")
-      @comedian_3 = Comedian.create(name: "Jerry Seinfeld", birthdate: "April 29, 1954", city: "Brooklyn, New York")
+      @comedian_1 = Comedian.create(name: "Louis C.K.", age: "51", city: "Washington, D.C.")
+      @comedian_2 = Comedian.create(name: "Chris Rock", age: "53", city: "Andrews, South Carolina")
+      @comedian_3 = Comedian.create(name: "Jerry Seinfeld", age: "64", city: "Brooklyn, New York")
       @special_1_1 = @comedian_1.specials.create(title: "Louis C.K. 2017", runtime: 74, thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
       @special_1_2 = @comedian_1.specials.create(title: "Louis C.K.: Shameless", runtime: 56, thumbnail: "https://m.media-amazon.com/images/M/MV5BMjE4NjE1ODI5Ml5BMl5BanBnXkFtZTcwMTgxNjc0MQ@@._V1_UY268_CR4,0,182,268_AL_.jpg")
       @special_1_3 = @comedian_1.specials.create(title: "Louis C.K.: Live at the Comedy Store", runtime: 66, thumbnail: "https://m.media-amazon.com/images/M/MV5BODJlMmIyNjEtZDQ0ZS00MGIyLWEyZmYtOTQyYTQyMWJkODhmXkEyXkFqcGdeQXVyMjQ0ODQ0MzQ@._V1_UX182_CR0,0,182,268_AL_.jpg")
@@ -59,7 +59,7 @@ RSpec.describe "as a visitor" do
 
     it "should display summary statistics" do
 
-      comedian_4 = Comedian.create(name: "Dave Chappelle", birthdate: "August 24, 1973", city: "Washington, D.C.")
+      comedian_4 = Comedian.create(name: "Dave Chappelle", age: "45", city: "Washington, D.C.")
 
       visit '/comedians'
 
