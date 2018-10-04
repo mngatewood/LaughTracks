@@ -11,4 +11,8 @@ class Comedian < ActiveRecord::Base
     return (sum_of_ages / Comedian.all.length).floor
   end
 
+  def self.unique_cities
+    Comedian.distinct.pluck(:city)
+  end
+
 end
