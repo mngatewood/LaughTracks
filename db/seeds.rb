@@ -2,18 +2,18 @@ require_relative '../app/models/comedian'
 require_relative '../app/models/special'
 
 comedians = [
-  {name: "Louis C.K.", birthdate: "September 12, 1967", city: "Washington, D.C."},
-  {name: "Chris Rock", birthdate: "February 7, 1965", city: "Andrews, South Carolina"},
-  {name: "Jerry Seinfeld", birthdate: "April 29, 1954", city: "Brooklyn, New York"},
-  {name: "Bill Cosby", birthdate: "July 12, 1937", city: "Philadelphia, Pennsylvania"},
-  {name: "Dave Chappelle", birthdate: "August 24, 1973", city: "Washington, D.C."},
-  {name: "Steve Martin", birthdate: "August 14, 1945", city: "Waco, Texas"},
-  {name: "Steven Wright", birthdate: "December 6, 1955", city: "Cambridge, Massachusetts"},
-  {name: "Billy Connolly", birthdate: "24 November 1942", city: "Anderston, Glasgow, Scotland"},
-  {name: "Hasan Minhaj", birthdate: "September 23, 1985", city: "Davis, California"},
-  {name: "Mike Birbiglia", birthdate: "June 22, 1987", city: "Shrewsbury, Massachusetts"},
-  {name: "Jerrod Carmichael", birthdate: "June 22, 1987", city: "Los Angeles, California"},
-  {name: "Tracy Morgan", birthdate: "November 10, 1968", city: "New York City, New York"}
+  {name: "Louis C.K.", age: 51, city: "Washington, D.C."},
+  {name: "Chris Rock", age: 53, city: "Andrews, South Carolina"},
+  {name: "Jerry Seinfeld", age: 64, city: "Brooklyn, New York"},
+  {name: "Bill Cosby", age: 81, city: "Philadelphia, Pennsylvania"},
+  {name: "Dave Chappelle", age: 45, city: "Washington, D.C."},
+  {name: "Steve Martin", age: 73, city: "Waco, Texas"},
+  {name: "Steven Wright", age: 62, city: "Cambridge, Massachusetts"},
+  {name: "Billy Connolly", age: 75, city: "Anderston, Glasgow, Scotland"},
+  {name: "Hasan Minhaj", age: 33, city: "Davis, California"},
+  {name: "Mike Birbiglia", age: 31, city: "Shrewsbury, Massachusetts"},
+  {name: "Jerrod Carmichael", age: 31, city: "Los Angeles, California"},
+  {name: "Tracy Morgan", age: 49, city: "New York City, New York"}
 ]
 
 specials = [

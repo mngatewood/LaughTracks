@@ -33,9 +33,7 @@
         <article id="comedian-<%= comedian.id %>-container">
           <section class="comedian-info">
             <h3><%= comedian.name %></h3>
-            <% age = @today.year - comedian.birthdate.year %>
-            <% age -= 1 if @today < comedian.birthdate + age.years %>
-            <p>Age: <%= age %></p>
+            <p>Age: <%= comedian.age %></p>
             <p>Birthplace: <%= comedian.city %></p>
             <p>Total Specials: </p>
           </section>
