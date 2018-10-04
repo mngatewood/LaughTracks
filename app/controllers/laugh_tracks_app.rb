@@ -7,6 +7,9 @@ class LaughTracksApp < Sinatra::Base
   get '/comedians' do
     @comedians = Comedian.all
     @today = Date.today
+    @average_age = Comedian.average_age
+    @unique_cities = Comedian.unique_cities
+    @average_runtime = Special.average_runtime
     erb :index
   end
 

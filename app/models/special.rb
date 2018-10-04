@@ -4,4 +4,8 @@ class Special < ActiveRecord::Base
 
   belongs_to :comedian
 
+  def self.average_runtime
+    average(:runtime).floor
+  end
+
 end
