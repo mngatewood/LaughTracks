@@ -5,7 +5,7 @@ class Special < ActiveRecord::Base
   belongs_to :comedian
 
   def self.average_runtime
-    average(:runtime).floor
+    average(:runtime) ? average(:runtime).floor : "N/A"
   end
 
 end
