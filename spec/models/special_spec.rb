@@ -23,5 +23,18 @@ RSpec.describe Special do
       end
 
     end
+
+    describe 'Class Methods' do
+
+      it 'should return the average runtime of all specials' do
+        Special.create(title: "Louis C.K. 2017", runtime: 74, comedian_id: 1)
+        Special.create(title: "Louis C.K.: Shameless", runtime: 56, comedian_id: 1)
+        Special.create(title: "Louis C.K.: Live at the Comedy Store", runtime: 66, comedian_id: 1)
+
+        average_runtime = Special.average_runtime
+        expect(average_runtime).to eq 65
+      end
+
+    end
   end
 end
