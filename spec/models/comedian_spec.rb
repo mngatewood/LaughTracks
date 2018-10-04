@@ -9,7 +9,6 @@ RSpec.describe Comedian do
       end
     end
 
-
     describe 'Required Field(s)' do
       it 'should be invalid if missing a name' do
         comic = Comedian.create(birthdate: 'September 12, 1967', city: 'Las Vegas, NV')
@@ -27,5 +26,17 @@ RSpec.describe Comedian do
       end
       
     end
+
+    describe 'Class Methods' do
+      it 'should return the average age of all comedians' do
+        Comedian.create(name: "Louis C.K.", birthdate: "September 12, 1967", city: "Washington, D.C.")
+        Comedian.create(name: "Chris Rock", birthdate: "February 7, 1965", city: "Andrews, South Carolina")
+        Comedian.create(name: "Jerry Seinfeld", birthdate: "April 29, 1954", city: "Brooklyn, New York")
+
+        average_age = Comedian.average_age
+        expect(average_age).to eq 56
+      end
+    end
+
   end
 end
