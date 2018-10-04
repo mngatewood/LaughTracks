@@ -19,7 +19,7 @@
     </section>
     <section id="birthplaces">
       <h3>Comedian Birthplaces</h3>
-      <ul>
+      <ul id="unique-cities">
         <% @unique_cities.each do |city| %>
           <li><%= city %></li>
         <% end %>
@@ -30,7 +30,7 @@
     <h1>Comedians</h1>
     <section>
       <% @comedians.each do |comedian| %>
-        <article>
+        <article id="comedian-<%= comedian.id %>-container">
           <section class="comedian-info">
             <h3><%= comedian.name %></h3>
             <% age = @today.year - comedian.birthdate.year %>
@@ -39,9 +39,9 @@
             <p>Birthplace: <%= comedian.city %></p>
             <p>Total Specials: </p>
           </section>
-          <section class="comedian-specials">
+          <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
             <% comedian.specials.each do |special| %>
-              <div class="special-container">
+              <div id="special-<%= comedian.id %>-container" class="special-container">
                 <img alt="<%= special.title %> thumbnail" 
                   src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
                 <div class="special-text">
