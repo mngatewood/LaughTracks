@@ -3,7 +3,7 @@ class CreateComedians < ActiveRecord::Migration[5.2]
 
     create_table :comedians do |c|
       c.text :name
-      c.date :birthdate
+      c.integer :age
       c.text :city
 
       c.timestamps null: false
