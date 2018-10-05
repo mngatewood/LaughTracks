@@ -64,15 +64,16 @@ RSpec.describe "as a visitor" do
       visit '/comedians'
 
       within("header") do
-        expect(page).to have_content("53")
-        expect(page).to have_content("71")
+        expect(page).to have_css("center", :text => "53")
+        expect(page).to have_css("center", :text => "6")
+        expect(page).to have_css("center", :text => "71")
       end
 
       within("ul#unique-cities") do
         expect(page).to have_css("li", :count => 3)
-        expect(page).to have_content("Washington, D.C.")
-        expect(page).to have_content("Andrews, South Carolina")
-        expect(page).to have_content("Brooklyn, New York")
+        expect(page).to have_content(@comedian_1.city)
+        expect(page).to have_content(@comedian_2.city)
+        expect(page).to have_content(@comedian_3.city)
       end
 
     end
