@@ -39,7 +39,7 @@
           </section>
           <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
             <% comedian.specials.each do |special| %>
-              <div id="special-<%= comedian.id %>-container" class="special-container">
+              <div id="special-<%= special.id %>-container" class="special-container">
                 <img alt="<%= special.title %> thumbnail" 
                   src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
                 <div class="special-text">
