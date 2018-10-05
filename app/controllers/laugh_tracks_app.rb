@@ -5,11 +5,19 @@ require 'date'
 class LaughTracksApp < Sinatra::Base
 
   get '/comedians' do
-    @comedians = Comedian.all
+    if params[:age]
+      @comedians = Comedian.where(age: params[:age])
+      @average_age = Comedian.where(age: params[:age]).average_age
+# filtering average_runtime breaks relationships
+      @average_runtime = Special.average_runtime
+      @unique_cities = Comedian.where(age: params[:age]).unique_cities
+    else
+      @comedians = Comedian.all
+      @average_age = Comedian.average_age
+      @average_runtime = Special.average_runtime
+      @unique_cities = Comedian.unique_cities
+    end
     @today = Date.today
-    @average_age = Comedian.average_age
-    @unique_cities = Comedian.unique_cities
-    @average_runtime = Special.average_runtime
     erb :index
   end
 
