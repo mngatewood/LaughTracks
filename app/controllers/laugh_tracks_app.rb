@@ -10,7 +10,7 @@ class LaughTracksApp < Sinatra::Base
       @average_age = @comedians.average_age
       # average_runtime does not use ActiveRecord
       all_runtimes = @comedians.map{|c|c.specials.map{|s|s.runtime}}.flatten
-      @average_runtime = all_runtimes.sum / all_runtimes.count
+      @average_runtime = all_runtimes.length > 0 ? all_runtimes.sum / all_runtimes.count : 0
       @unique_cities = @comedians.unique_cities
     else
       @comedians = Comedian.all
@@ -21,6 +21,15 @@ class LaughTracksApp < Sinatra::Base
     @specials_count = @comedians.map{|c|c.specials.count}.sum
     @today = Date.today
     erb :index
+  end
+
+  get '/comedians/new' do
+    erb :new
+  end
+
+  post '/comedians' do
+    comedian = Comedian.create(params[:comedian])
+    redirect :comedians
   end
 
 end

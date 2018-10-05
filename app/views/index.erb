@@ -1,56 +1,46 @@
-<html>
-
-<head>
-  <title>Laugh Tracks</title>
-  <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
-  <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Knewave|Oswald:500,700|Raleway" rel="stylesheet"></head>
-
-<body>
-  <h1>Statistics</h1>
-  <header>
-    <section>
-      <h3>Average TV Special Runtime:</h3>
-      <center><%= @average_runtime %></center>
-      <h3>Total TV Specials:</h3>
-      <center><%= @specials_count %></center>
-      <h3>Average Comedian Age:</h3>
-      <center><%= @average_age %></center>
-    </section>
-    <section id="birthplaces">
-      <h3>Comedian Birthplaces</h3>
-      <ul id="unique-cities">
-        <% @unique_cities.each do |city| %>
-          <li><%= city %></li>
-        <% end %>
-      </ul>
-    </section>
-  </header>
-  <main>
-    <h1>Comedians</h1>
-    <section>
-      <% @comedians.each do |comedian| %>
-        <article id="comedian-<%= comedian.id %>-container">
-          <section class="comedian-info">
-            <h3><%= comedian.name %></h3>
-            <p>Age: <%= comedian.age %></p>
-            <p>Birthplace: <%= comedian.city %></p>
-            <p>Total Specials: <%= comedian.specials.count %></p>
-          </section>
-          <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
-            <% comedian.specials.each do |special| %>
-              <div id="special-<%= special.id %>-container" class="special-container">
-                <img alt="<%= special.title %> thumbnail" 
-                  src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
-                <div class="special-text">
-                  <h4><%= special.title %></h4>
-                  <p>Length: <%= special.runtime %> minutes</p>
-                </div>
-              </div>
-            <% end %>
-          </section>
-        </article>
+<h1>Statistics</h1>
+<header>
+  <section>
+    <h3>Average TV Special Runtime:</h3>
+    <center><%= @average_runtime %></center>
+    <h3>Total TV Specials:</h3>
+    <center><%= @specials_count %></center>
+    <h3>Average Comedian Age:</h3>
+    <center><%= @average_age %></center>
+  </section>
+  <section id="birthplaces">
+    <h3>Comedian Birthplaces</h3>
+    <ul id="unique-cities">
+      <% @unique_cities.each do |city| %>
+        <li><%= city %></li>
       <% end %>
-    <section>
-  </main>
-</body>
+    </ul>
+  </section>
+</header>
+<main>
+  <h1>Comedians</h1>
+  <section>
+    <% @comedians.each do |comedian| %>
+      <article id="comedian-<%= comedian.id %>-container">
+        <section class="comedian-info">
+          <h3><%= comedian.name %></h3>
+          <p>Age: <%= comedian.age %></p>
+          <p>Birthplace: <%= comedian.city %></p>
+          <p>Total Specials: <%= comedian.specials.count %></p>
+        </section>
+        <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
+          <% comedian.specials.each do |special| %>
+            <div id="special-<%= special.id %>-container" class="special-container">
+              <img alt="<%= special.title %> thumbnail" 
+                src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
+              <div class="special-text">
+                <h4><%= special.title %></h4>
+                <p>Length: <%= special.runtime %> minutes</p>
+              </div>
+            </div>
+          <% end %>
+        </section>
+      </article>
+    <% end %>
+  <section>
+</main>
