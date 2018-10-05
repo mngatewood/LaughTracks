@@ -13,7 +13,7 @@
       <h3>Average TV Special Runtime:</h3>
       <center><%= @average_runtime %></center>
       <h3>Total TV Specials:</h3>
-      <center><%=  %></center>
+      <center><%= @specials_count %></center>
       <h3>Average Comedian Age:</h3>
       <center><%= @average_age %></center>
     </section>
@@ -35,7 +35,7 @@
             <h3><%= comedian.name %></h3>
             <p>Age: <%= comedian.age %></p>
             <p>Birthplace: <%= comedian.city %></p>
-            <p>Total Specials: </p>
+            <p>Total Specials: <%= comedian.specials.count %></p>
           </section>
           <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
             <% comedian.specials.each do |special| %>
