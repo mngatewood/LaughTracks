@@ -23,13 +23,13 @@ RSpec.describe "as a visitor" do
 
       within("#comedian-1-container") do
         expect(page).to have_css("h3", :text => @comedian_1.name)
-        expect(page).to have_content("Age: 51")
+        expect(page).to have_content("Age: #{@comedian_1.age}")
         expect(page).to have_content("Birthplace: #{@comedian_1.city}")
       end
 
       within("#comedian-2-container") do
         expect(page).to have_css("h3", :text => @comedian_2.name)
-        expect(page).to have_content("Age: 53")
+        expect(page).to have_content("Age: #{@comedian_2.age}")
         expect(page).to have_content("Birthplace: #{@comedian_2.city}")
       end
 
@@ -43,16 +43,16 @@ RSpec.describe "as a visitor" do
         expect(page).to have_css("div.special-container", :count => 3)
       end
 
-      within("#comedian-1-specials") do
+      within("#special-1-container") do
         expect(page).to have_content(@special_1_1.title)
         expect(page).to have_content("Length: #{@special_1_1.runtime} minutes")
         expect(page).to have_css("img[src*='#{@special_1_1.thumbnail}']")
       end
 
-      within("#comedian-2-specials") do
-        expect(page).to have_content(@special_2_1.title)
-        expect(page).to have_content("Length: #{@special_2_1.runtime} minutes")
-        expect(page).to have_css("img[src*='#{@special_2_1.thumbnail}']")
+      within("#special-2-container") do
+        expect(page).to have_content(@special_1_2.title)
+        expect(page).to have_content("Length: #{@special_1_2.runtime} minutes")
+        expect(page).to have_css("img[src*='#{@special_1_2.thumbnail}']")
       end
 
     end
@@ -64,15 +64,16 @@ RSpec.describe "as a visitor" do
       visit '/comedians'
 
       within("header") do
-        expect(page).to have_content("53")
-        expect(page).to have_content("71")
+        expect(page).to have_css("center", :text => "53")
+        expect(page).to have_css("center", :text => "6")
+        expect(page).to have_css("center", :text => "71")
       end
 
       within("ul#unique-cities") do
         expect(page).to have_css("li", :count => 3)
-        expect(page).to have_content("Washington, D.C.")
-        expect(page).to have_content("Andrews, South Carolina")
-        expect(page).to have_content("Brooklyn, New York")
+        expect(page).to have_content(@comedian_1.city)
+        expect(page).to have_content(@comedian_2.city)
+        expect(page).to have_content(@comedian_3.city)
       end
 
     end
