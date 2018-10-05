@@ -67,14 +67,15 @@ RSpec.describe "as a visitor" do
       save_and_open_page
 
       within("header") do
-        expect(page).to have_content("31")
-        # expect(page).to have_content("64") #this test is currently failing; unable to implement
+        expect(page).to have_css("center", :text => "31")
+        expect(page).to have_css("center", :text => "4")
+        expect(page).to have_css("center", :text => "64")
       end
 
       within("ul#unique-cities") do
         expect(page).to have_css("li", :count => 2)
-        expect(page).to have_content("Shrewsbury, Massachusetts")
-        expect(page).to have_content("Los Angeles, California")
+        expect(page).to have_content(@comedian_2.city)
+        expect(page).to have_content(@comedian_3.city)
       end
 
     end
