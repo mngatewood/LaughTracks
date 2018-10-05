@@ -18,6 +18,7 @@ class LaughTracksApp < Sinatra::Base
       @average_runtime = Special.average_runtime
       @unique_cities = Comedian.unique_cities
     end
+    @specials_count = @comedians.map{|c|c.specials.count}.sum
     @today = Date.today
     erb :index
   end
