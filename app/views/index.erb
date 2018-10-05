@@ -1,6 +1,6 @@
-<h1>Statistics</h1>
-<header>
-  <section>
+<h2>Statistics</h2>
+<article id="statistics-container">
+  <section id="statistics-summary">
     <h3>Average TV Special Runtime:</h3>
     <center><%= @average_runtime %></center>
     <h3>Total TV Specials:</h3>
@@ -8,27 +8,45 @@
     <h3>Average Comedian Age:</h3>
     <center><%= @average_age %></center>
   </section>
-  <section id="birthplaces">
+  <section id="birthplaces-summary">
     <h3>Comedian Birthplaces</h3>
     <ul id="unique-cities">
       <% @unique_cities.each do |city| %>
-        <li><%= city %></li>
+        <li>&#8226 &nbsp<%= city %></li>
       <% end %>
     </ul>
   </section>
-</header>
+</article>
 <main>
-  <h1>Comedians</h1>
+  <h2>Comedians
+  <button onclick="location.href='/comedians/new'">+ Add a comedian
+  </button>
+  </h2>
   <section>
     <% @comedians.each do |comedian| %>
       <article id="comedian-<%= comedian.id %>-container">
         <section class="comedian-info">
           <h3><%= comedian.name %></h3>
-          <p>Age: <%= comedian.age %></p>
+          <p>Age: <%= comedian.age %> &nbsp 
+            <% if request.fullpath == "/comedians" %>
+              <a href="/comedians?age=<%= comedian.age %>">Filter by age</a>
+            <% else %>
+              <a href="/comedians">Remove Filter</a>
+            <% end %>
+          </p>
           <p>Birthplace: <%= comedian.city %></p>
           <p>Total Specials: <%= comedian.specials.count %></p>
+          <button 
+            style="display: <%= comedian.specials.count > 3 ? "inline" : "none" %>"
+            id="comedian-<%= comedian.id %>-toggle"
+            onClick="toggleSpecialsContainerHeight(<%= comedian.id %>)">
+            Show All
+          </button>
         </section>
-        <section id="comedian-<%= comedian.id %>-specials" class="comedian-specials">
+        <section 
+          id="comedian-<%= comedian.id %>-specials" 
+          class="comedian-specials"
+          style="height: 130px">
           <% comedian.specials.each do |special| %>
             <div id="special-<%= special.id %>-container" class="special-container">
               <img alt="<%= special.title %> thumbnail" 

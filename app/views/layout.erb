@@ -4,12 +4,42 @@
   <title>Laugh Tracks</title>
   <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
   <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Knewave|Oswald:500,700|Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Knewave|Oswald:500,700|Raleway|Notable" rel="stylesheet">
 </head>
 
 <body>
 
+  <header>
+    <a href="/comedians">
+      <div id="header-content">
+        <h1>Laugh</h1>
+        <img src="/images/logo.jpg" alt="photo of stand-up microphone and bench under a spotlight">
+        <h1>Tracks</h1>
+      </div>
+    </a>
+  </header>
+
+  <div id="header-gradient">
+  </div>
+
+  <div id="injected-content">
   <%= yield %>
+
+  <script>
+
+    function toggleSpecialsContainerHeight(comedianId) {
+      let container = document.getElementById(`comedian-${comedianId}-specials`);
+      let button = document.getElementById(`comedian-${comedianId}-toggle`)
+      if (container.style.height == "130px") {
+        container.style.height = "auto"
+        button.innerText = "Collapse"
+      } else {
+        container.style.height = "130px"
+        button.innerText = "Show All"
+      }
+    }
+    
+  </script>
 
 </body>
 
