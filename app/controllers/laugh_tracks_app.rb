@@ -7,10 +7,11 @@ class LaughTracksApp < Sinatra::Base
   get '/comedians' do
     if params[:age]
       @comedians = Comedian.where(age: params[:age])
-      @average_age = Comedian.where(age: params[:age]).average_age
-# filtering average_runtime breaks relationships
-      @average_runtime = Special.average_runtime
-      @unique_cities = Comedian.where(age: params[:age]).unique_cities
+      @average_age = @comedians.average_age
+      # average_runtime does not use ActiveRecord
+      all_runtimes = @comedians.map{|c|c.specials.map{|s|s.runtime}}.flatten
+      @average_runtime = all_runtimes.sum / all_runtimes.count
+      @unique_cities = @comedians.unique_cities
     else
       @comedians = Comedian.all
       @average_age = Comedian.average_age
