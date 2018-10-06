@@ -54,7 +54,7 @@ h2 {
   color:white;
   font-family: 'Knewave', cursive;
   font-size: 36px;
-  margin: 24px 36px;
+  margin: 6px 36px;
 }
 
 article, form {
@@ -73,7 +73,7 @@ article#statistics-container {
 #statistics-summary {
   display: grid;
   grid-template-columns: 260px 1fr;
-  margin: 9px 36px 0 9px;
+  margin: 9px 36px 0 18px;
 }
 
 #statistics-summary h3 {
@@ -110,9 +110,67 @@ article#statistics-container {
   margin-right: 10px;
 }
 
+#comedian-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+}
+
+#comedian-heading h2 {
+  display: inline-block
+}
+
+#comedian-heading button {
+  padding: 8px;
+  border-radius: 6px;
+  position: relative;
+  top: -6px;
+  margin: 12px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#comedian-sort {
+  position: relative;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  float: right;
+  margin-right: 36px;
+  height: 44px;
+  border-radius: 6px;
+}
+
+legend {
+  margin: 4px 12px;
+  position: absolute;
+  top: 8px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#comedian-sort .fieldgroup {
+  position: absolute;
+  left: 180px;
+  display: flex;
+  top: 2px;
+}
+
+#comedian-sort label {
+  margin: 14px 6px 0 23px;
+  cursor: pointer;
+}
+
+#comedian-sort input {
+  width: 18px;
+  cursor: pointer;
+}
+
 .comedian-info {
   position: relative;
-  padding: 0 22px;
+  padding: 0 18px;
   width: 25vw;
 }
 
@@ -151,14 +209,6 @@ h3 {
   font-weight: 700;
 }
 
-h2 button {
-  padding: 6px;
-  border-radius: 6px;
-  top: -4px;
-  position: relative;
-  margin-left: 12px;
-  cursor: pointer;
-}
 
 p {
   margin: 6px;
