@@ -1,0 +1,16 @@
+<h2 id="comedian-name"><%= @comedian.name %></h2>
+<article class="comedian-info">
+  <h3>Age: <%= @comedian.age %></h3>
+  <h3>Birthplace: <%= @comedian.city %></h3>
+  <h3>Total Specials: <%= @comedian.specials.count %></h3>
+</article>
+<main class="comedian-specials">
+  <% @comedian.specials.each do |special| %>
+    <article id="special-<%= special.id %>-container" class="special-container">
+      <h3><%= special.title %></h3>
+      <p>Length: <%= special.runtime %> minutes</p>
+      <img alt="<%= special.title %> thumbnail" 
+        src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
+      </article>
+  <% end %>
+</main>
