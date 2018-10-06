@@ -4,6 +4,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: 'Raleway', sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 header {
@@ -205,4 +208,39 @@ input[type=submit] {
   background-color:lightgray;
   border-width: 3px;
   border-style: outset;
+}
+
+article.comedian-info {
+  display: block;
+  padding: 10px;
+  width: unset;
+}
+
+main.comedian-specials {
+  padding: 0 14px;
+  border: none;
+  box-shadow: none;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  width: 97%;
+  justify-content: space-between;
+  height: unset;
+}
+
+main.comedian-specials article {
+  background-color: white;
+  width: 320px;
+  padding: 12px;
+  flex-direction: column;
+  min-width: unset;
+  margin: 18px;
+}
+
+main.comedian-specials h3 {
+  height: 40px;
+}
+
+main.comedian-specials article img {
+  width: auto;
+  height: 340px;
 }
