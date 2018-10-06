@@ -18,11 +18,45 @@
   </section>
 </article>
 <main>
-  <h2>Comedians
-  <button onclick="location.href='/comedians/new'">+ Add a comedian
-  </button>
-  </h2>
-  <section>
+  <section id="comedian-heading">
+    <div class="comedians-heading-title">
+      <h2>Comedians</h2>
+      <button onclick="location.href='/comedians/new'">+ Add a comedian</button>
+    </div>
+    <% @path = request.fullpath.partition('=').last %>
+    <% if ["", "name", "age", "city"].include?(@path) %>
+      <fieldset id="comedian-sort">
+        <legend>Sort Comedians</legend>
+        <div class="fieldgroup">
+          <label for="sort-id">ID</label>
+          <input 
+            type="radio"
+            id="sort-id"
+            onclick="document.location='/comedians';" 
+            <%= "checked" if @path ==  "" %> />
+          <label for="sort-name">Name</label>
+          <input 
+            type="radio"
+            id="sort-name"
+            onclick="document.location='/comedians?sort=name';"
+            <%= "checked" if @path ==  "name" %> />
+          <label for="sort-age">Age</label>
+          <input 
+            type="radio" 
+            id="sort-age"
+            onclick="document.location='/comedians?sort=age';"
+            <%= "checked" if @path ==  "age" %> />
+          <label for="sort-city">City</label>
+          <input 
+            type="radio"
+            id="sort-city"
+            onclick="document.location='/comedians?sort=city';"
+            <%= "checked" if @path ==  "city" %> />
+        </fieldgroup>
+      </fieldset>
+    <% end %>
+  </section>
+  <section class="comedians-container">
     <% @comedians.each do |comedian| %>
       <article id="comedian-<%= comedian.id %>-container">
         <section class="comedian-info">
@@ -32,10 +66,10 @@
             </a>
           </h3>
           <p>Age: <%= comedian.age %> &nbsp 
-            <% if request.fullpath == "/comedians" %>
-              <a href="/comedians?age=<%= comedian.age %>">Filter by age</a>
-            <% else %>
+            <% if request.fullpath.start_with?("/comedians?age") %>
               <a href="/comedians">Remove Filter</a>
+            <% else %>
+              <a href="/comedians?age=<%= comedian.age %>">Filter by age</a>
             <% end %>
           </p>
           <p>Birthplace: <%= comedian.city %></p>
