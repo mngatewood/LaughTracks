@@ -26,7 +26,11 @@
     <% @comedians.each do |comedian| %>
       <article id="comedian-<%= comedian.id %>-container">
         <section class="comedian-info">
-          <h3><%= comedian.name %></h3>
+          <h3>
+            <a href="/comedians/<%= comedian.id %>">
+              <%= comedian.name %>
+            </a>
+          </h3>
           <p>Age: <%= comedian.age %> &nbsp 
             <% if request.fullpath == "/comedians" %>
               <a href="/comedians?age=<%= comedian.age %>">Filter by age</a>

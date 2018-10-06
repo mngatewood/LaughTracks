@@ -64,7 +64,7 @@ RSpec.describe "as a visitor" do
 
       visit '/comedians?age=31'
 
-      within("header") do
+      within("#statistics-summary") do
         expect(page).to have_css("center", :text => "31")
         expect(page).to have_css("center", :text => "4")
         expect(page).to have_css("center", :text => "64")

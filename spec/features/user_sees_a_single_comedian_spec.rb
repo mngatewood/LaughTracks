@@ -1,5 +1,5 @@
 RSpec.describe "as a visitor" do
-  describe "when I visit the comedians page" do
+  describe "when I visit /comedians/1" do
 
     before(:each) do
       @comedian_1 = Comedian.create(name: "Louis C.K.", age: "51", city: "Washington, D.C.")
@@ -13,34 +13,28 @@ RSpec.describe "as a visitor" do
       @special_3_1 = @comedian_3.specials.create(title: "Jerry Seinfeld: 'I'm Telling You for the Last Time'", runtime: 75, thumbnail: "https://m.media-amazon.com/images/M/MV5BNDM4OTY0NTAyMF5BMl5BanBnXkFtZTcwNTcxMDQyMQ@@._V1_UY268_CR0,0,182,268_AL_.jpg")
     end
 
-    it "should display a list of comedians" do
+    it "should display a page with only comedian 1 information" do
 
-      visit '/comedians'
+      visit '/comedians/1'
 
-      within("main") do
-        expect(page).to have_css("article", :count => 3)
-      end
-
-      within("#comedian-1-container") do
-        expect(page).to have_css("h3", :text => @comedian_1.name)
-        expect(page).to have_content("Age: #{@comedian_1.age}")
-        expect(page).to have_content("Birthplace: #{@comedian_1.city}")
-      end
-
-      within("#comedian-2-container") do
-        expect(page).to have_css("h3", :text => @comedian_2.name)
-        expect(page).to have_content("Age: #{@comedian_2.age}")
-        expect(page).to have_content("Birthplace: #{@comedian_2.city}")
+      within("#comedian-name") do
+        expect(page).to have_content(@comedian_1.name)
       end
 
     end
 
-    it "should display each comedian's specials" do
+    it "should display comedian's specials" do
 
-      visit '/comedians'
+      visit '/comedians/1'
 
-      within("#comedian-1-container") do
-        expect(page).to have_css("div.special-container", :count => 3)
+      within("#injected-content") do
+        expect(page).to have_css("#comedian-name", :count => 1)
+        expect(page).to have_css(".comedian-info", :count => 1)
+        expect(page).to have_css(".comedian-specials", :count => 1)
+        expect(page).to have_css(".special-container", :count => 3)        
+        expect(page).to have_content(@comedian_1.name)
+        expect(page).to_not have_content(@comedian_2.name)
+        expect(page).to_not have_content(@comedian_3.name)
       end
 
       within("#special-1-container") do
@@ -56,27 +50,5 @@ RSpec.describe "as a visitor" do
       end
 
     end
-
-    it "should display summary statistics" do
-
-      comedian_4 = Comedian.create(name: "Dave Chappelle", age: "45", city: "Washington, D.C.")
-
-      visit '/comedians'
-
-      within("#statistics-summary") do
-        expect(page).to have_css("center", :text => "53")
-        expect(page).to have_css("center", :text => "6")
-        expect(page).to have_css("center", :text => "71")
-      end
-
-      within("ul#unique-cities") do
-        expect(page).to have_css("li", :count => 3)
-        expect(page).to have_content(@comedian_1.city)
-        expect(page).to have_content(@comedian_2.city)
-        expect(page).to have_content(@comedian_3.city)
-      end
-
-    end
   end
-
 end
