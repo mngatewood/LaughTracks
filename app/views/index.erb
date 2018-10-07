@@ -94,6 +94,10 @@
               <div class="special-text">
                 <h4><%= special.title %></h4>
                 <p>Length: <%= special.runtime %> minutes</p>
+                <a id="delete-special-<%= special.id %>" 
+                  href="/specials/delete/<%= special.id %>">
+                  <img src="/images/trash.svg" title="Delete <%= special.title %>">
+                </a>
               </div>
             </div>
           <% end %>

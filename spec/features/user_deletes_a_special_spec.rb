@@ -1,5 +1,5 @@
 RSpec.describe "as a visitor" do
-  describe "when I visit comedians?sort=name" do
+  describe "when I click a delete special button" do
 
     before(:each) do
       @comedian_1 = Comedian.create(name: "Louis C.K.", age: "51", city: "Washington, D.C.")
@@ -13,17 +13,22 @@ RSpec.describe "as a visitor" do
       @special_3_1 = @comedian_3.specials.create(title: "Jerry Seinfeld: 'I'm Telling You for the Last Time'", runtime: 75, thumbnail: "https://m.media-amazon.com/images/M/MV5BNDM4OTY0NTAyMF5BMl5BanBnXkFtZTcwNTcxMDQyMQ@@._V1_UY268_CR0,0,182,268_AL_.jpg")
     end
 
-    it "should display a list of comedians sorted by name" do
+    it "should delete the special and refresh all commedians view" do
 
-      visit '/comedians?sort=name'
+      visit '/comedians'
 
-      within(".comedians-container") do
-        expect(page).to have_css("article", :count => 3)
+      within("#comedian-1-specials") do
+        expect(page).to have_content("Louis C.K. 2017")
+        expect(page).to have_content("Louis C.K.: Shameless")
+        expect(page).to have_content("Louis C.K.: Live at the Comedy Store")
       end
 
-      within("#injected-content") do
-        expect(page).to have_css(".comedians-container:nth-child(1)", :text => @comedian_2.name)
-        expect(page).to have_css(".comedians-container:nth-child(3)", :text => @comedian_1.name)
+      find("#delete-special-1").click
+
+      within("#comedian-1-specials") do
+        expect(page).to_not have_content("Louis C.K. 2017")
+        expect(page).to have_content("Louis C.K.: Shameless")
+        expect(page).to have_content("Louis C.K.: Live at the Comedy Store")
       end
 
     end
