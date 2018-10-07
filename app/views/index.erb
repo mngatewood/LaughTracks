@@ -62,9 +62,11 @@
         <section class="comedian-info">
           <h3>
             <a href="/comedians/<%= comedian.id %>"><%= comedian.name %></a>
-            <a id="delete-comedian-<%= comedian.id %>" 
+            <a id="delete-comedian-<%= comedian.id %>"
               href="/comedians/delete/<%= comedian.id %>">
-              <img src="/images/trash.svg" title="Delete <%= comedian.name %>">
+              <img src="/images/trash.svg"
+                class="delete-comedian"
+                title="Delete <%= comedian.name %>">
             </a>
           </h3>
           <p>Age: <%= comedian.age %> &nbsp 
@@ -82,6 +84,13 @@
             onClick="toggleSpecialsContainerHeight(<%= comedian.id %>)">
             Show All
           </button>
+          <a id="add-comedian-<%= comedian.id %>-special" 
+            href="/specials/new/<%= comedian.id %>">
+            <span>Add a TV special</span>
+            <img src="/images/add.svg"
+              class="add-special"
+              title="Add TV special for <%= comedian.name %>">
+          </a>
         </section>
         <section 
           id="comedian-<%= comedian.id %>-specials" 
@@ -90,7 +99,7 @@
           <% comedian.specials.each do |special| %>
             <div id="special-<%= special.id %>-container" class="special-container">
               <img alt="<%= special.title %> thumbnail" 
-                src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
+                src="<%= ["", nil].include?(special.thumbnail) ? "/images/no_thumbnail.jpeg" : special.thumbnail %>" >
               <div class="special-text">
                 <h4><%= special.title %></h4>
                 <p>Length: <%= special.runtime %> minutes</p>
