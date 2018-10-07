@@ -174,7 +174,7 @@ legend {
   width: 25vw;
 }
 
-.comedian-info img {
+img.delete-comedian {
   position: relative;
   width: 18px;
   height: 18px;
@@ -190,6 +190,22 @@ legend {
   left: 135px;
   background-color: rgba(128, 33, 18, 0.8);
   color: white;
+}
+
+.comedian-info span {
+  position: absolute;
+  right: 30px;
+  font-size: 13px;
+}
+
+img.add-special {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: none;
+  right: 0px;
+  bottom: 6px;
+  cursor: pointer;
 }
 
 .comedian-specials {
