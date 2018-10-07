@@ -16,6 +16,12 @@ RSpec.describe Special do
         expect(special).to_not be_valid
       end
 
+      it 'should be invalid if missing a runtime' do
+        special = Special.create(title: 'A Funny Show', comedian_id: 1)
+
+        expect(special).to_not be_valid
+      end
+
       it 'should be invalid if missing a comedian_id' do
         special = Special.create(title: 'A Funny Show', runtime: '60')
 
