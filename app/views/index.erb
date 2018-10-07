@@ -61,8 +61,10 @@
       <article id="comedian-<%= comedian.id %>-container">
         <section class="comedian-info">
           <h3>
-            <a href="/comedians/<%= comedian.id %>">
-              <%= comedian.name %>
+            <a href="/comedians/<%= comedian.id %>"><%= comedian.name %></a>
+            <a id="delete-comedian-<%= comedian.id %>" 
+              href="/comedians/delete/<%= comedian.id %>">
+              <img src="/images/trash.svg" title="Delete <%= comedian.name %>">
             </a>
           </h3>
           <p>Age: <%= comedian.age %> &nbsp 

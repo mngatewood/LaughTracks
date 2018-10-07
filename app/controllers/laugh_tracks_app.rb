@@ -12,11 +12,7 @@ class LaughTracksApp < Sinatra::Base
       @average_runtime = all_runtimes.length > 0 ? all_runtimes.sum / all_runtimes.count : 0
       @unique_cities = @comedians.unique_cities
     else
-      if params[:sort]
-        @comedians = Comedian.order(params[:sort])
-      else
-        @comedians = Comedian.all
-      end
+      @comedians = params[:sort] ? Comedian.order(params[:sort]) : Comedian.all
       @average_runtime = Special.average_runtime
       @unique_cities = Comedian.unique_cities
     end
@@ -37,6 +33,11 @@ class LaughTracksApp < Sinatra::Base
   get '/comedians/:id' do
     @comedian = Comedian.find(params[:id])
     erb :show
+  end
+
+  get '/comedians/delete/:id' do
+    comedian = Comedian.delete(params[:id])
+    redirect :comedians
   end
 
 end
