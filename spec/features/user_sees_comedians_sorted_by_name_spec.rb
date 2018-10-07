@@ -17,8 +17,6 @@ RSpec.describe "as a visitor" do
 
       visit '/comedians?sort=name'
 
-      save_and_open_page
-
       within(".comedians-container") do
         expect(page).to have_css("article", :count => 3)
       end
