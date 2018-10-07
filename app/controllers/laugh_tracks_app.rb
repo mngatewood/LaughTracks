@@ -40,4 +40,9 @@ class LaughTracksApp < Sinatra::Base
     redirect :comedians
   end
 
+  get '/specials/delete/:id' do
+    special = Special.delete(params[:id])
+    redirect :comedians
+  end
+
 end
