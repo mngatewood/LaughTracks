@@ -1,0 +1,11 @@
+<h2>Add a TV Special</h2>
+
+<form id="new-special" action="/specials" method="post">
+
+  <h3>Enter TV special information</h3>
+  <input type="text" name="special[title]" placeholder="Title" required>
+  <input type="text" name="special[runtime]" placeholder="Runtime (minutes)" required>
+  <input type="text" name="special[thumbnail]" placeholder="Thumbnail (url)">
+  <input type="hidden" name="special[comedian_id]" value="<%= @comedian.id %>" >
+  <input type="submit" value="Submit">
+</form> 
