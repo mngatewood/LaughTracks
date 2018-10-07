@@ -232,6 +232,7 @@ h4 {
 
 .special-text {
   position: relative;
+  padding-right: 6px;
 }
 
 .special-text p {
@@ -302,4 +303,13 @@ main.comedian-specials h3 {
 main.comedian-specials article img {
   width: auto;
   height: 340px;
+}
+
+.special-text img {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: none;
+  bottom: 0;
+  cursor: pointer;
 }
