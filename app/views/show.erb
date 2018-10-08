@@ -10,7 +10,7 @@
       <h3><%= special.title %></h3>
       <p>Length: <%= special.runtime %> minutes</p>
       <img alt="<%= special.title %> thumbnail" 
-        src="<%= special.thumbnail ? special.thumbnail : "/images/no_thumbnail.jpeg" %>"/>
+        src="<%= ["", nil].include?(special.thumbnail) ? "/images/no_thumbnail.jpeg" : special.thumbnail %>" >
       </article>
   <% end %>
 </main>

@@ -28,12 +28,6 @@
       <fieldset id="comedian-sort">
         <legend>Sort Comedians</legend>
         <div class="fieldgroup">
-          <label for="sort-id">ID</label>
-          <input 
-            type="radio"
-            id="sort-id"
-            onclick="document.location='/comedians';" 
-            <%= "checked" if @path ==  "" %> />
           <label for="sort-name">Name</label>
           <input 
             type="radio"
@@ -103,9 +97,11 @@
               <div class="special-text">
                 <h4><%= special.title %></h4>
                 <p>Length: <%= special.runtime %> minutes</p>
-                <a id="delete-special-<%= special.id %>" 
+                <a id="delete-special-<%= special.id %>"
                   href="/specials/delete/<%= special.id %>">
-                  <img src="/images/trash.svg" title="Delete <%= special.title %>">
+                  <img src="/images/trash.svg" 
+                    class="delete-special"
+                    title="Delete <%= special.title %>">
                 </a>
               </div>
             </div>
